@@ -259,7 +259,7 @@
 					<tbody>
 						<?php if($shopping_cart_item != "") { ?>
 						<tr>
-							<td class="text-center col-image"><img style="width:40px; height:40px;" src="http://static.fishagift.com/images/items/<?php echo $shopping_cart_item['IMAGE1']; ?>" alt="item"/></td>
+							<td class="text-center col-image"><img style="width:40px; height:40px;" src="<?php echo framework::resolve("static/images/items/{$shopping_cart_item['IMAGE1']}"); ?>" alt="item"/></td>
 							<td class="text-left"><?php echo $shopping_cart_item['NAMELONG']; ?></td>
 							<td class="text-right">$<?php echo number_format($shopping_cart_item['PRICE'],2); ?></td>
 						</tr>
@@ -267,7 +267,7 @@
 
 						<?php if($shopping_cart_paper != "") { ?>
 						<tr>
-							<td class="text-center col-image"><img style="width:40px; height:40px;" src="http://static.fishagift.com/images/papers/<?php echo $shopping_cart_paper['IMAGE']; ?>" alt="paper"/></td>
+							<td class="text-center col-image"><img style="width:40px; height:40px;" src="<?php echo framework::resolve("static/images/papers/{$shopping_cart_paper['IMAGE']}"); ?>" alt="paper"/></td>
 							<td class="text-left"><?php echo $shopping_cart_paper['NAME']; ?></td>
 							<td class="text-right">$<?php echo number_format($price_paper,2); ?></td>
 						</tr>
@@ -343,7 +343,7 @@
 								<?php if(intval($ccExpirationYear) == 0){?>
 									<option value=""><?php echo $i18n['cc-yyyy']; ?></option>
 								<?php } ?>
-								
+
 								<?php 
 									for($i=date("Y"); $i<date("Y")+10; $i++) {
 										echo "<option value='$i'";
