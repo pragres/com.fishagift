@@ -5,5 +5,7 @@
 .htaccess
 static/images/*
 cert/
+logs/
+key/
 config.ini
 nbproject
