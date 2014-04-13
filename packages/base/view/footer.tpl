@@ -52,6 +52,13 @@
 							<div id="footer-trustus" class="trust-icon">
 								<?php echo $i18n['trustus']; ?>
 							</div>
+
+							<!-- begin GoDaddy ssl certificate -->
+							<span id="siteseal" style="vertical-align: 30px; margin-right: 5px;">
+								<script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=QzFXWlAD40hjotcw0oZ8FZwtAWpTu95I2LZGQbOytcVn82jLMeWtR61RHm"></script>
+							</span>
+							<!-- begin GoDaddy ssl certificate -->
+
 							<!-- Begin Official PayPal Seal -->
 							<div class="trust-icon" style="vertical-align: top;">
 								<a href="https://www.paypal.com/us/verified/pal=salvi.pascual@pragres.com" target="_blank"><img src="<?php echo framework::resolve('static/graphs/verification_seal.png'); ?>" border="0" alt="Official PayPal Seal"/></a>

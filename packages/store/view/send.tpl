@@ -302,8 +302,8 @@
 
 				<!--sub-subsection: tabs-->
 				<ul id="paymentmethod-tabs" class="nav nav-tabs" style="margin-bottom:20px;">
-					<li onclick="changePaymentMethodTab('paymentmethod-credit','CC',this);" class="active"><a href="#" onclick="return false;"><img src="<?php echo framework::resolve('static/graphs/payment/creditcard.png'); ?>" width="35" alt="CC" style="margin-right:10px;"/><?php echo $i18n['paymentmethod-tab-creditcard']; ?></a></li>
-					<li onclick="changePaymentMethodTab('paymentmethod-paypal','PP',this);"><a href="#" onclick="return false;"><img src="<?php echo framework::resolve('static/graphs/payment/paypal.png'); ?>" width="35" alt="PP" style="margin-right:10px;" /><?php echo $i18n['paymentmethod-tab-paypal']; ?></a></li>
+					<li onclick="changePaymentMethodTab('paymentmethod-credit','CC',this);" class="active"><a href="#" onclick="return false;"><img src="<?php echo framework::resolve('static/graphs/payment/creditcard.png'); ?>" width="35" alt="CC" style="margin-right:10px;"/><span class="hidden-xs"><?php echo $i18n['paymentmethod-tab-creditcard']; ?></span></a></li>
+					<li onclick="changePaymentMethodTab('paymentmethod-paypal','PP',this);"><a href="#" onclick="return false;"><img src="<?php echo framework::resolve('static/graphs/payment/paypal.png'); ?>" width="35" alt="PP" style="margin-right:10px;" /><span class="hidden-xs"><?php echo $i18n['paymentmethod-tab-paypal']; ?></span></a></li>
 				</ul>
 
 				<!--sub-subsection: credit card-->
@@ -324,12 +324,10 @@
 						<label for="ccExpirationMonth" class="col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label"><?php echo $i18n['creditcard-expdate']; ?></label>
 						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 nospace-right">
 							<select id="ccExpirationMonth" name="ccExpirationMonth" class="form-control required" title="<?php echo $i18n['creditcard-expdate-month-title']; ?>">
-								
 								<?php if(intval($ccExpirationMonth) == 0){?>
 									<option value="">MM</option>
 								<?php } ?>
-								
-								
+
 								<?php 
 									for($i=1; $i<13; $i++) {
 										echo "<option value='$i'";
@@ -408,6 +406,12 @@
 			<div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
 				<p class="hidden-xs"><?php echo $i18n['creditcard-help']; ?></p>
 				<div class="text-center">
+					<!-- begin GoDaddy ssl certificate -->
+					<span id="siteseal" style="margin-right: 5px;">
+						<script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=QzFXWlAD40hjotcw0oZ8FZwtAWpTu95I2LZGQbOytcVn82jLMeWtR61RHm"></script>
+					</span>
+					<!-- begin GoDaddy ssl certificate -->
+
 					<!-- Begin Official PayPal Seal -->
 					<a href="https://www.paypal.com/us/verified/pal=salvi.pascual@pragres.com" target="_blank"><img src="<?php echo framework::resolve('static/graphs/verification_seal.png'); ?>" border="0" alt="Official PayPal Seal"></a>
 					<!-- End Official PayPal Seal -->

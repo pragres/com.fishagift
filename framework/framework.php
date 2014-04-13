@@ -38,14 +38,14 @@ class framework {
 		// The $path is from the Business Logic Tier
 		if (strpos($path, "packages") === 0)
 			return $path;
-			
-			// The $path is from the Static Files Tier
+
+		// The $path is from the Static Files Tier
 		if (strpos($path, "static") === 0) {
 			$path = substr($path, strlen("static/"));
 			$node = self::$config;
 			return "{$node['cdn']['host']}/$path";
 		}
-		
+
 		// return the actual path (if exist)
 		if (file_exists($path))
 			return $path;

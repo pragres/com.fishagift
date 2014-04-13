@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="<?php echo framework::resolve('static/css/responsive.css'); ?>"/>
 		<link rel="stylesheet" type="text/css" media="screen" href="<?php echo framework::resolve('static/libs/ht5ifv/ht5ifv.css'); ?>"/>
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="<?php echo framework::resolve('static/js/bootstrap.min.js'); ?>"></script>
 		<script src="<?php echo framework::resolve('static/js/respond.min.js'); ?>"></script>
 		<script src="<?php echo framework::resolve('static/js/shoppingcart.js'); ?>"></script>
@@ -26,7 +26,7 @@
 		<script src="<?php echo framework::resolve('static/libs/date.format/date.format.js'); ?>"></script>
 		<script src="<?php echo framework::resolve('static/js/draggable.js'); ?>"></script>
 		<script type="text/javascript" src="<?php echo framework::resolve('static/libs/ht5ifv/jquery.ht5ifv.min.js'); ?>" charset="UTF-8"></script>
-		<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	</head>
 	<body data-spy="scroll" data-target="#menu">
 

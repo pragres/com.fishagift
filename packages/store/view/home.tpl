@@ -1,7 +1,14 @@
 <?php include_once framework::resolve('packages/base/view/header.tpl'); ?>
 <?php include_once framework::resolve('packages/base/view/menu.tpl'); ?>
 
-<link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+<style type="text/css">
+	@font-face {
+	  font-family: 'Monoton';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: local('Monoton'), local('Monoton-Regular'), url(https://themes.googleusercontent.com/static/fonts/monoton/v4/AKI-lyzyNHXByGHeOcds_w.woff) format('woff');
+	}
+</style>
 
 <div id="section-body" class="container">
 	<div class="col-lg-12">
