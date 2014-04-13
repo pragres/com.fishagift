@@ -1,0 +1,9 @@
+.settings
+.buildpath
+.project
+.git
+.htaccess
+static/images/*
+cert/
+config.ini
+nbproject
