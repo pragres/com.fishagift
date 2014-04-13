@@ -1,0 +1,10 @@
+body{
+	background-image: url('../graphs/censored.png');
+	background-repeat: repeat;
+}
+
+.admin-product-image{
+	width:100px; 
+	border:2px solid black; 
+	margin:10px;
+}
