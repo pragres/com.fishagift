@@ -8,6 +8,7 @@ if (!Security::isSessionStartedByAdmin())
 $email = $_GET['email'];
 $user = Security::getUser($email);
 $user['ADMINISTRATOR'] = 1;
+unset($user['PASSWORD']);
 Security::updateUserInformation($email, $user);
 
 framework::redirect("admin/users");

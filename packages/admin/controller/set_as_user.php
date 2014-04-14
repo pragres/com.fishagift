@@ -8,6 +8,7 @@ if (!Security::isSessionStartedByAdmin())
 $user = Security::getUser($_GET['email']);
 
 $user['ADMINISTRATOR'] = 0;
+unset($user['PASSWORD']);
 
 Security::updateUserInformation($_GET['email'], $user);
 
