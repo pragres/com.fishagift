@@ -22,29 +22,42 @@ if (! $isSessionStarted) {
 	exit();
 }
 
-if (! is_null($order)) {
-	
-	// Checking the owner
-	/*
-	 * if ($order['SENDER'] != $user['EMAIL']) framework::redirect("store/home");
-	 */
-	
-	// loading internacionalization
-	$languages = Security::getLanguages();
-	$lang = framework::session_get('language');
-	
-	include_once framework::resolve("packages/store/i18n/$lang/orderdetails.php");
-	
-	// load configurations for this view.
-	$conf = Security::getWebsiteConfigs();
-	$price_paper = $conf['price_paper'];
-	
-	/*
-	 * $price_card = $conf['price_card']; $price_bag = $conf['price_bag']; $price_ornament = $conf['price_ornament'];
-	 */
-	// passing variables to the view
-	$title = $i18n['title'];
-	
-	// calling the view
-	include_once framework::resolve('packages/store/view/orderdetails.tpl');
+// redirect to home if error in order
+if (is_null($order)) {
+	framework::redirect('store/home');
+	exit();
 }
+
+// mask the cc to show only the last 4 digits
+$ccNumber = "";
+if (isset($order['SENDER']['CREDITCARD'])){
+	$ccNumber = $order['SENDER']['CREDITCARD']['CARDNUMBER'];
+	$ccNumber = "XXXX-XXXX-XXXX-" . substr($ccNumber, -4);
+}
+
+// formatting date in a human readable way
+$arrivalDate = date("m/d/Y", strtotime($order['DATE']));
+
+// Checking the owner
+/*
+ * if ($order['SENDER'] != $user['EMAIL']) framework::redirect("store/home");
+ */
+
+// loading internacionalization
+$languages = Security::getLanguages();
+$lang = framework::session_get('language');
+
+include_once framework::resolve("packages/store/i18n/$lang/orderdetails.php");
+
+// load configurations for this view.
+$conf = Security::getWebsiteConfigs();
+$price_paper = $conf['price_paper'];
+
+/*
+ * $price_card = $conf['price_card']; $price_bag = $conf['price_bag']; $price_ornament = $conf['price_ornament'];
+ */
+// passing variables to the view
+$title = $i18n['title'];
+
+// calling the view
+include_once framework::resolve('packages/store/view/orderdetails.tpl');
