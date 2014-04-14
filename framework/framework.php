@@ -38,14 +38,14 @@ class framework {
 		// The $path is from the Business Logic Tier
 		if (strpos($path, "packages") === 0)
 			return $path;
-
-		// The $path is from the Static Files Tier
+			
+			// The $path is from the Static Files Tier
 		if (strpos($path, "static") === 0) {
 			$path = substr($path, strlen("static/"));
 			$node = self::$config;
 			return "{$node['cdn']['host']}/$path";
 		}
-
+		
 		// return the actual path (if exist)
 		if (file_exists($path))
 			return $path;
@@ -322,11 +322,15 @@ class framework {
 	 *
 	 * @return string
 	 */
-	static function getCurrentUrlQuery(){
+	static function getCurrentUrlQuery($ignore = ''){
+		$ignore = explode(",", $ignore);
+		
+		framework::log("Get current url query, ignore = " . serialize($ignore));
+		
 		$url = '';
 		
 		foreach ( $_GET as $key => $val ) {
-			if ($key != 'package' && $key != 'page')
+			if ($key != 'package' && $key != 'page' && array_search($key, $ignore) === false)
 				$url .= $key . '=' . urlencode($val) . '&';
 		}
 		
