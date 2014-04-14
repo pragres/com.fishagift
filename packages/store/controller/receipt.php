@@ -37,7 +37,7 @@ if (isset($order['SENDER']['CREDITCARD'])){
 }
 
 // formatting date in a human readable way
-$arrivalDate = date("m/d/Y", mktime($order['DATE']));
+$arrivalDate = date("m/d/Y", strtotime($order['DATE']));
 
 // Checking the owner
 /*
