@@ -1,5 +1,4 @@
 <?php
-
 include_once framework::resolve('packages/base/model/Security.php');
 
 // collecting data from post
@@ -11,10 +10,10 @@ framework::session_set('language', $language);
 
 $user = Security::getCurrentUser();
 
-if (!is_null($user)){
-	$user['LANGUAGE'] = $language;
-	unset($uset['PASSWORD']);
-	Security::updateUserInformation($user['EMAIL'], $user);
+if (! is_null($user)) {
+	Security::updateUserInformation($user['EMAIL'], array(
+			'LANGUAGE' => $language
+	));
 }
 
 // redirecting
@@ -23,4 +22,4 @@ unset($_GET['page']);
 unset($_GET['package']);
 unset($_GET['language']);
 
-framework::redirect($returnTo, '&'.framework::getCurrentUrlQuery());
+framework::redirect($returnTo, '&' . framework::getCurrentUrlQuery());
