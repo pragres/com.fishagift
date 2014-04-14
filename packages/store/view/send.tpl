@@ -275,16 +275,16 @@
 					</tbody>
 					<tfoot>
 						<tr>
-							<th colspan="2"><?php echo $i18n['payment-tax']; ?></th>
-							<th class="text-right">$<span id="taxes"><?php echo number_format($tax,2); ?></span></th>
+							<td colspan="2"><?php echo $i18n['payment-tax']; ?></td>
+							<td class="text-right">$<span id="taxes"><?php echo number_format($tax,2); ?></span></td>
 						</tr>
 						<tr>
-							<th colspan="2"><?php echo $i18n['payment-shipping']; ?></th>
-							<th class="text-right">$<span id="shipping"><?php echo number_format($shipping,2); ?></span></th>
+							<td colspan="2"><?php echo $i18n['payment-shipping']; ?></td>
+							<td class="text-right">$<span id="shipping"><?php echo number_format($shipping,2); ?></span></td>
 						</tr>
 						<tr>
-							<th colspan="2"><?php echo $i18n['payment-total']; ?></th>
-							<th class="text-right">$<span class="payment-total"><?php echo number_format($total,2); ?></span></th>
+							<td colspan="2"><b><?php echo $i18n['payment-total']; ?></b></td>
+							<td class="text-right"><b>$<span class="payment-total"><?php echo number_format($total,2); ?></span></b></td>
 						</tr>
 					</tfoot>
 				</table>
