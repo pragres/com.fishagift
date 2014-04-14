@@ -22,9 +22,9 @@
 
 		<h1><?php echo $i18n['receipt-details-header']; ?></h1>
 		<p style="padding-right:50px;">
-			<?php echo $i18n['receipt-details-payby']; ?> <?php echo $order['PAYMENTMETHOD']['NAME']; ?>, VISA <?php if (isset($order['SENDER']['CREDITCARD'])) echo $order['SENDER']['CREDITCARD']['CARDNUMBER']; ?>.
+			<?php echo $i18n['receipt-details-payby']; ?> <?php echo $order['PAYMENTMETHOD']['NAME']; ?>, <?php echo $order['SENDER']['CARDTYPE']; ?> <?php echo $ccNumber; ?>.
 			<?php echo $i18n['receipt-details-sendby']; ?> USPS priority mail, two days shipping. <?php echo $order['RECEIVER']; ?>
-			<?php echo $i18n['receipt-details-receiveby']; ?> <?php echo $order['DATE']; ?>
+			<?php echo $i18n['receipt-details-receiveby']; ?> <?php echo $arrivalDate; ?>
 		</p>
 	</div>
 
@@ -35,32 +35,28 @@
 		<table class="table table-hover valign-middle">
 			<tbody>
 				<tr>
-					<td class="text-center col-image"><img style="width:40px; height:40px;" src="http://static.fishagift.com/images/items/<?php echo $order['PRODUCT']['ITEMIMAGE']; ?>" alt="item"/></td>
-					<td class="text-left col-category"><?php echo $i18n['payment-item']; ?></td>
+					<td class="text-center col-image"><img style="width:40px; height:40px;" src="<?php echo framework::resolve("static/images/items/{$order['PRODUCT']['ITEMIMAGE']}"); ?>" alt="item"/></td>
 					<td class="text-left"><?php echo $order['PRODUCT']['ITEMNAMELONG']; ?></td>
 					<td class="text-right"><?php echo number_format($order['PRODUCT']['ITEMPRICE'],2); ?></td>
 				</tr>
 				<tr>
-					<td class="text-center col-image"><img style="width:40px; height:40px;" src="http://static.fishagift.com/images/papers/<?php echo $order['PRODUCT']['PAPERIMAGE']; ?>" alt="paper"/></td>
-					<td class="text-left col-category"><?php echo $i18n['payment-paper']; ?></td>
+					<td class="text-center col-image"><img style="width:40px; height:40px;" src="<?php echo framework::resolve("static/images/papers/{$order['PRODUCT']['PAPERIMAGE']}"); ?>" alt="paper"/></td>
 					<td class="text-left"><?php echo $order['PRODUCT']['PAPERNAME']; ?></td>
 					<td class="text-right">$<?php echo number_format($price_paper,2); ?></td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
-					<th colspan="3"><?php echo $i18n['payment-tax']; ?></th>
-					<th class="text-right">$<span id="taxes"><?php echo number_format($order['PRODUCT']['TAX'],2); ?></span></th>
+					<td colspan="2"><?php echo $i18n['payment-tax']; ?></td>
+					<td class="text-right">$<span id="taxes"><?php echo number_format($order['PRODUCT']['TAX'],2); ?></span></td>
 				</tr>
 				<tr>
-					<th colspan="3"><?php echo $i18n['payment-shipping']; ?></th>
-					<th class="text-right">$<span id="shipping"><?php echo $order['PRODUCT']['SHIPPINGPRICE']; ?></span></th>
+					<td colspan="2"><?php echo $i18n['payment-shipping']; ?></td>
+					<td class="text-right">$<span id="shipping"><?php echo $order['PRODUCT']['SHIPPINGPRICE']; ?></span></td>
 				</tr>
 				<tr>
-					<th colspan="3"><?php echo $i18n['payment-total']; ?></th>
-					<th class="text-right">$<span class="payment-total">
-					<?php echo number_format($order['PRODUCT']['PRICE'],2); ?>
-					</span></th>
+					<td colspan="2"><b><?php echo $i18n['payment-total']; ?></b></td>
+					<td class="text-right"><b>$<span class="payment-total"><?php echo number_format($order['PRODUCT']['PRICE'],2); ?></span></b></td>
 				</tr>
 			</tfoot>
 		</table>
