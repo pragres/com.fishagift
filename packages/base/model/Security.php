@@ -310,6 +310,8 @@ class Security {
 	static function updateUserInformation($email, $user){
 		framework::connect();
 		
+		framework::log("Update user information: ". serialize($user));
+		
 		$email = mysql_real_escape_string($email);
 		
 		if (! is_null($user)) {
