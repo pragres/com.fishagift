@@ -41,7 +41,7 @@
 					</li>
 				<?php } else { ?>
 					<li><a href="<?php echo framework::link_to('base/login'); ?>"><?php echo $i18n['login']; ?></a></li>
-					<li><a href="<?php echo framework::link_to('base/login'); ?>#section-register"><?php echo $i18n['register']; ?></a></li>
+					<li><a href="<?php echo framework::link_to('base/login'); ?>"><?php echo $i18n['register']; ?></a></li>
 				<?php } ?>
 
 				<li class="dropdown">
