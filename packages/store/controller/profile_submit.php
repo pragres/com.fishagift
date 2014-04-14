@@ -27,7 +27,6 @@ if (md5($oldPassword) != $user['PASSWORD'] && $oldPassword != '') {
 	
 	$profile = array(
 			"FULLNAME" => $fullName,
-			"PASSWORD" => $newPassword,
 			"SEX" => $sex,
 			"BIRTHDATE" => $dateOfBirth,
 			"LINEONE" => $address1,
@@ -42,6 +41,8 @@ if (md5($oldPassword) != $user['PASSWORD'] && $oldPassword != '') {
 			"SECURITYCODE" => $ccSecurityCode,
 			"SUBSCRIBENEWS" => $subscribe == 'on' ? 1 : 0
 	);
+	
+	//if (isseet($_POST['Password'])
 	
 	Security::saveProfile($profile);
 }
