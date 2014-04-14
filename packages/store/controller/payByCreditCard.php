@@ -55,9 +55,6 @@ $total = number_format($price + $tax + $shipping, 2) * 100;
 
 framework::log("$email pay PRICE = $price TAX = $tax SHIPPING = $shipping TOTAL = $total");
 
-// total in cents (int) @TODO make this formula more accurated, we dond wanna lost cents
-
-// $total = 2054; // total in cents (int)
 // submit the payment
 
 require 'libs/Stripe/config.php';

@@ -52,7 +52,7 @@
 					<ul class="dropdown-menu" style="min-width: 110px;">
 						<?php foreach ($languages as $langx) { ?>
 						<li>
-	                    	<a href="<?php echo framework::link_to('base/changeLang_submit', false)."&returnTo=$package/$page&language={$langx['CODE']}&".framework::getCurrentUrlQuery(); ?>">
+	                    	<a href="<?php echo framework::link_to('base/changeLang_submit', false)."&returnTo=$package/$page&language={$langx['CODE']}&".framework::getCurrentUrlQuery('returnTo,language'); ?>">
 	                        <img src="<?php echo framework::resolve('static/graphs/lang/'.$langx['CODE'].'.png'); ?>" alt="<?php echo $langx['COUNTRY']; ?>"/> <?php echo $i18n[strtolower($langx['NAME'])]; ?></a>
 						</li>
 	                    <?php } ?>
