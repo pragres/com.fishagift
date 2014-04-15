@@ -171,10 +171,12 @@ class framework {
 	 * @param string $path
 	 */
 	static public function redirect($path, $extra = ""){
-		
 		self::log("Redirecting to $path");
 		
-		$xpath = self::link_to($path, false) . $extra;
+		if ($extra[0] == '&')
+			$extra = substr($extra, 1);
+		
+		$xpath = self::link_to($path, true) . "/?" . $extra;
 		
 		$xpath = str_replace("router.php?package=", "", $xpath);
 		$xpath = str_replace("&page=", "/", $xpath);
@@ -198,8 +200,13 @@ class framework {
 	 */
 	static public function getValue($var, $clean = true){
 		if (! isset($_REQUEST[$var]))
-			return "";
-		return $clean ? htmlentities($_REQUEST[$var]) : $_REQUEST[$var];
+			$r = "";
+		else
+			$r = $clean ? htmlentities($_REQUEST[$var]) : $_REQUEST[$var];
+		
+		self::log("Get REQUEST $var = " . serialize($r));
+		
+		return $r;
 	}
 	
 	/**

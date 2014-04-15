@@ -11,7 +11,7 @@ include_once framework::resolve("packages/base/i18n/$lang/login.php");
 // redirecting to home if session is started
 $isSessionStarted = Security::isSessionStarted();
 if ($isSessionStarted) {
-	header("Location: " . framework::link_to('store/home'));
+	framework::redirect('store/home');
 	exit();
 }
 
@@ -21,14 +21,14 @@ $title = $i18n['title'];
 // checking where to return
 $returnTo = framework::getValue('returnTo');
 
-if ($returnTo == "") {
+if (empty($returnTo)) {
 	
-	$returnTo = Tracer::returnLastTrace()->getLocation();
+	/*$returnTo = Tracer::returnLastTrace()->getLocation();
 	
 	if ($returnTo == 'base/logout_submit')
 		$returnTo = null;
 	
-	if (is_null($returnTo))
+	if (is_null($returnTo))*/
 		$returnTo = "store/home";
 }
 
