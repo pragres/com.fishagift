@@ -70,7 +70,7 @@ class framework {
 		
 		// returning depending if clean=true or false
 		if ($clean)
-			return "{$node['website']['protocol']}://{$node['website']['appdomain']}/$package/$page";
+			return "{$node['website']['protocol']}://{$node['website']['appdomain']}/$route";
 		else
 			return "{$node['website']['protocol']}://{$node['website']['appdomain']}/router.php?package=$package&page=$page";
 	}
@@ -173,7 +173,10 @@ class framework {
 	static public function redirect($path, $extra = ""){
 		self::log("Redirecting to $path");
 		
-		$xpath = self::link_to($path, false) . $extra;
+		if ($extra[0] == '&')
+			$extra = substr($extra, 1);
+		
+		$xpath = self::link_to($path, true) . "/?" . $extra;
 		
 		$xpath = str_replace("router.php?package=", "", $xpath);
 		$xpath = str_replace("&page=", "/", $xpath);
