@@ -63,6 +63,9 @@ class Security {
 	 *
 	 *
 	 *
+	 *
+	 *
+	 *
 	 * Return a list of users
 	 *
 	 * @author rafa
@@ -310,7 +313,7 @@ class Security {
 	static function updateUserInformation($email, $user){
 		framework::connect();
 		
-		framework::log("Update user information: ". serialize($user));
+		framework::log("Update user information: " . serialize($user));
 		
 		$email = mysql_real_escape_string($email);
 		
@@ -323,6 +326,7 @@ class Security {
 					'user,Language,LANGUAGE',
 					'user,Administrator,ADMINISTRATOR',
 					'user,SubscribeNews,SUBSCRIBENEWS',
+					'user,BirthDate,BIRTHDATE',
 					'user,Sex,SEX',
 					'credit_card,Name,NAMEONCARD',
 					'credit_card,Number,CARDNUMBER*',
@@ -343,11 +347,6 @@ class Security {
 			foreach ( $updates as $update ) {
 				$arr = explode(",", $update);
 				
-				if (strpos($arr[2], '*') !== false) {
-					$arr[2] = str_replace('*', '', $arr[2]);
-					$user[$arr[2]] = self::encrypt($user[$arr[2]]);
-				}
-				
 				if ($arr[0] != 'user') {
 					$r = framework::query("SELECT count(*) as TOTAL FROM {$arr[0]} WHERE User = '$email';");
 					if ($r[0]['TOTAL'] < 1) {
@@ -357,9 +356,13 @@ class Security {
 				
 				if (isset($user[$arr[2]])) {
 					
-					if ($arr[1] == 'Password')
-						$arr[2] = md5($arr[2]);
-										
+					if ($arr[1] == 'Password') {
+						$user[$arr[2]] = md5($user[$arr[2]]);
+					} elseif (strpos($arr[2], '*') !== false) {
+						$arr[2] = str_replace('*', '', $arr[2]);
+						$user[$arr[2]] = self::encrypt($user[$arr[2]]);
+					}
+					
 					$sql = "UPDATE {$arr[0]} SET {$arr[1]} = '{$user[$arr[2]]}' Where " . ($arr[0] == 'user' ? 'Email' : 'User') . " = '$email';";
 					
 					framework::query($sql);
@@ -403,6 +406,9 @@ class Security {
 	 * @author rafa <rafa@pragres.com>
 	 * @version 1.0
 	 * @static
+	 *
+	 *
+	 *
 	 *
 	 *
 	 *
@@ -800,6 +806,9 @@ class Security {
 	 *
 	 *
 	 *
+	 *
+	 *
+	 *
 	 * @author rafa <rafa@pragres.com>
 	 * @version 1.0
 	 * @param integer $Id
@@ -813,6 +822,9 @@ class Security {
 	 * Add a shipping method
 	 *
 	 * @static
+	 *
+	 *
+	 *
 	 *
 	 *
 	 *
@@ -843,6 +855,9 @@ class Security {
 	 * Add a payment method
 	 *
 	 * @static
+	 *
+	 *
+	 *
 	 *
 	 *
 	 *
@@ -934,6 +949,9 @@ class Security {
 	 *
 	 *
 	 *
+	 *
+	 *
+	 *
 	 * @author rafa
 	 * @version 1.0
 	 * @param string $code
@@ -978,6 +996,9 @@ class Security {
 	 * Set the language of user
 	 *
 	 * @static
+	 *
+	 *
+	 *
 	 *
 	 *
 	 *

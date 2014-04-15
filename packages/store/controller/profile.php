@@ -28,6 +28,7 @@ $subscribe = $user['SUBSCRIBENEWS'];
 $address1 = $user['LINEONE'];
 $address2 = $user['LINETWO'];
 $city = $user['CITY'];
+$state = $user['STATE'];
 $country = "United States";
 $zipcode = $user['ZIPCODE'];
 $ccName = $user['NAMEONCARD'];

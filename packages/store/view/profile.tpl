@@ -78,8 +78,8 @@
 						<label for="state" class="control-label visible-xs">State</label>
 						<select id="state" name="state" class="form-control">
 							<option value=""><?php echo $i18n['address-state']; ?></option>
-							<?php foreach ($statesUSA as $state) { ?>
-								<option value="<?php echo $state['code']; ?>"><?php echo $state['name']; ?></option>
+							<?php foreach ($statesUSA as $st) { ?>
+								<option value="<?php echo $st['code']; ?>" <?php if ($state == $st['code']) echo "selected"; ?>><?php echo $st['name']; ?></option>
 							<?php } ?>
 						</select>
 					</div>
