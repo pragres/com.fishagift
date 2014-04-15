@@ -10,14 +10,14 @@ class Security {
 	 */
 	static function getWebsiteConfigs(){
 		return Array(
-				"price_paper" => 0,
-				"price_card" => 2,
-				"price_bag" => 3,
-				"price_ornament" => 0.5,
-				"tax_amount" => 0.07
+			"price_paper" => 0,
+			"price_card" => 2,
+			"price_bag" => 3,
+			"price_ornament" => 0.5,
+			"tax_amount" => 0.07
 		);
 	}
-	
+
 	/**
 	 * Based on a item's price, calculates the taxes to pay.
 	 * We should use this function instead of manually calculate for in case the formula changes
@@ -268,14 +268,13 @@ class Security {
 	 * @return : user session variable
 	 */
 	static function getCurrentUser(){
-		if (! self::isSessionStarted())
-			return false;
+		if (! self::isSessionStarted()) return false;
 		$user = framework::session_get('user');
 		$userx = self::getUser($user['EMAIL']);
 		$user = array_merge($user, $userx);
 		return $user;
 	}
-	
+
 	/**
 	 * : Returns true if the session is started, false otherwhise
 	 *
