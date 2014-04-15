@@ -184,6 +184,9 @@ class framework {
 		if ($xpath[strlen($xpath) - 1] == '&')
 			$xpath = substr($xpath, 0, strlen($xpath) - 1);
 		
+		if ($xpath[strlen($xpath) - 1] == '?')
+			$xpath = substr($xpath, 0, strlen($xpath) - 1);
+		
 		self::log("Finally, redirecting to $xpath");
 		
 		header("Location: " . $xpath);
