@@ -45,5 +45,5 @@ if ($data !== false) {
 	
 	// Redirect to login page
 	framework::log("Register user error");
-	framework::redirect("base/login");
+	framework::redirect("base/login", "&error=userExist");
 }
