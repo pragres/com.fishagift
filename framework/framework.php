@@ -171,13 +171,19 @@ class framework {
 	 * @param string $path
 	 */
 	static public function redirect($path, $extra = ""){
+		
 		self::log("Redirecting to $path");
+		
 		$xpath = self::link_to($path, false) . $extra;
+		
 		$xpath = str_replace("router.php?package=", "", $xpath);
 		$xpath = str_replace("&page=", "/", $xpath);
+		
 		if ($xpath[strlen($xpath) - 1] == '&')
 			$xpath = substr($xpath, 0, strlen($xpath) - 1);
+		
 		self::log("Finally, redirecting to $xpath");
+		
 		header("Location: " . $xpath);
 	}
 	

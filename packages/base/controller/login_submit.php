@@ -50,6 +50,7 @@ if (is_null($user)) {
 	} else {
 		// wrong password
 		framework::log("Login error: $email type a wrong password!");
+		
 		framework::redirect('base/login', "&error=wrongCredentials&returnTo=$returnTo");
 	}
 }

@@ -25,6 +25,9 @@ if ($returnTo == "") {
 	
 	$returnTo = Tracer::returnLastTrace()->getLocation();
 	
+	if ($returnTo == 'base/logout_submit')
+		$returnTo = null;
+	
 	if (is_null($returnTo))
 		$returnTo = "store/home";
 }
@@ -39,6 +42,6 @@ if (isset($_GET["error"]))
 	$errorEmailNoExist = $_GET["error"] == "emailNoExist"; // &error=emailNoExist when email no exist reseting the password
 if (isset($_GET["error"]))
 	$errorUserExist = $_GET["error"] == "userExist"; // &error=userExits when email exists registering
-		                                                                            
+		                                                 
 // calling the view
 include_once framework::resolve('packages/base/view/login.tpl');
