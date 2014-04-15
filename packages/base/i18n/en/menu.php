@@ -9,7 +9,7 @@
 	$i18n['send'] = 'Send';
 	$i18n['about'] = 'About';
 	$i18n['profile'] = 'Profile';
-	$i18n['fished'] = 'Gifts fished';
+	$i18n['fished'] = 'Fished gifts';
 
 	// session
 	$i18n['logout'] = 'Logout';

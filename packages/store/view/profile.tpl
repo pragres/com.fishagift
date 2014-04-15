@@ -76,7 +76,7 @@
 				<div class="form-group">
 					<div class="col-lg-3 col-lg-offset-3 col-md-3 col-md-offset-3 col-sm-5">
 						<label for="state" class="control-label visible-xs">State</label>
-						<select id="state" name="state" class="form-control" required>
+						<select id="state" name="state" class="form-control">
 							<option value=""><?php echo $i18n['address-state']; ?></option>
 							<?php foreach ($statesUSA as $state) { ?>
 								<option value="<?php echo $state['code']; ?>"><?php echo $state['name']; ?></option>

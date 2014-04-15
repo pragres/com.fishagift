@@ -311,51 +311,42 @@
 					<div class="form-group">
 						<label for="ccName" class="col-lg-3 col-md-3 col-sm-3 control-label"><?php echo $i18n['creditcard-name']; ?></label>
 						<div class="col-lg-9 col-md-9 col-sm-9">
-							<input id="ccName" name="ccName" type="text" class="form-control required" placeholder="<?php echo $i18n['creditcard-name']; ?>" value="<?php echo $ccName; ?>" required/>
+							<input id="ccName" name="ccName" type="text" class="form-control required" placeholder="<?php echo $i18n['creditcard-name']; ?>" value="<?php echo $ccName ? $ccName : $fromName; ?>" required/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="ccNumber" class="col-lg-3 col-md-3 col-sm-3 control-label"><?php echo $i18n['creditcard-number']; ?></label>
 						<div class="col-lg-9 col-md-9 col-sm-9">
-							<input id="ccNumber" name="ccNumber" type="text" class="form-control required" placeholder="<?php echo $i18n['creditcard-number']; ?>" value="<?php echo $ccNumber; ?>" required pattern="[0-9]{16}" title="<?php echo $i18n['creditcard-number-title']; ?>"/>
+							<input id="ccNumber" name="ccNumber" type="text" maxlength="16" class="form-control required" placeholder="<?php echo $i18n['creditcard-number']; ?>" value="<?php echo $ccNumber; ?>" required pattern="[0-9]{16}" title="<?php echo $i18n['creditcard-number-title']; ?>"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="ccExpirationMonth" class="col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label"><?php echo $i18n['creditcard-expdate']; ?></label>
 						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 nospace-right">
-							<select id="ccExpirationMonth" name="ccExpirationMonth" class="form-control required" title="<?php echo $i18n['creditcard-expdate-month-title']; ?>">
-								<?php if(intval($ccExpirationMonth) == 0){?>
-									<option value="">MM</option>
-								<?php } ?>
-
+							<select id="ccExpirationMonth" name="ccExpirationMonth" class="form-control required" title="<?php echo $i18n['creditcard-expdate-month-title']; ?>" required>
+								<option value="">MM</option>
 								<?php 
 									for($i=1; $i<13; $i++) {
-										echo "<option value='$i'";
-										if ($i == intval($ccExpirationMonth)) echo " selected ";
-										echo ">$i</option>"; 
+										$selected = $i == intval($ccExpirationMonth) ? "selected" : "";
+										echo "<option $selected value='$i'>$i</option>"; 
 									}
 								?>
 							</select>
 						</div>
 						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-							<select id="ccExpirationYear" name="ccExpirationYear" type="text" class="form-control required" title="<?php echo $i18n['creditcard-expdate-year-title']; ?>">
-								
-								<?php if(intval($ccExpirationYear) == 0){?>
-									<option value=""><?php echo $i18n['cc-yyyy']; ?></option>
-								<?php } ?>
-
+							<select id="ccExpirationYear" name="ccExpirationYear" type="text" class="form-control required" title="<?php echo $i18n['creditcard-expdate-year-title']; ?>" required>
+								<option value=""><?php echo $i18n['cc-yyyy']; ?></option>
 								<?php 
 									for($i=date("Y"); $i<date("Y")+10; $i++) {
-										echo "<option value='$i'";
-										if (intval($ccExpirationYear) == $i) echo " selected ";
-										echo ">$i</option>"; 
+										$selected = $i == intval($ccExpirationYear) ? "selected" : "";
+										echo "<option $selected value='$i'>$i</option>"; 
 									}
 								?>
 							</select>
 						</div>
 						<label id="ccSecurityCode-label" rel="tooltip" for="ccSecurityCode" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 space-top-20-xs cvv popit control-label">CVV <span style="color:#498FCC;" class="glyphicon glyphicon-question-sign"></span></label>
 						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 space-top-20-xs">
-							<input id="ccSecurityCode" name="ccSecurityCode" type="text" class="form-control required nospace-right" value="<?php echo $ccSecurityCode; ?>" required pattern="[0-9]{3}" title="<?php echo $i18n['creditcard-securitycode-title']; ?>"/>
+							<input id="ccSecurityCode" name="ccSecurityCode" type="text" maxlength="4" class="form-control required nospace-right" value="<?php echo $ccSecurityCode; ?>" required pattern="[0-9]{3,4}" title="<?php echo $i18n['creditcard-securitycode-title']; ?>"/>
 						</div>
 					</div>
 					<div class="form-group">

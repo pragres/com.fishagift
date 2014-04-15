@@ -2,7 +2,7 @@
 <p><?php echo $i18n['service1']; ?> <b><?php echo $order['CONFIRMATIONNUMBER']; ?></b> <?php echo $i18n['service2']; ?></p>
 <br/>
 
-<table width="100%" cellspacing="0" cellpadding="5">
+<table width="100%" cellspacing="0" cellpadding="5" style="width:100%">
 	<tr bgcolor="#F8F8F8">
 		<td valign="middle"><img width="40" height="40" style="width:40px; height:40px;" src="http://static.fishagift.com/images/items/<?php echo $order['PRODUCT']['ITEMIMAGE']; ?>" alt="item"/></td>
 		<td><b><?php echo $order['PRODUCT']['ITEMNAMELONG']; ?></b></td>

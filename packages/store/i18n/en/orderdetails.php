@@ -9,7 +9,7 @@ $i18n['title'] = 'Order details';
 // receipt
 $i18n['receipt-header'] = 'Order details';
 $i18n['receipt-help1'] = 'Here is your receipt and further information about your purchase. A copy of this receipt was sent to your by email. Your confirmation number is';
-$i18n['receipt-help2'] = 'You will need this number if you need to contact us regarding your order. You can also find this number in the receipt we emailed you, as well as in your list of <a href="'.framework::link_to("store/fished").'">gift fished</a>. ';
+$i18n['receipt-help2'] = 'You will need this number if you need to contact us regarding your order. You can also find this number in the receipt we emailed you, as well as in your list of <a href="'.framework::link_to("store/fished").'">fished gifts</a>. ';
 
 // address
 $i18n['receipt-addressfrom-header'] = 'Your address';

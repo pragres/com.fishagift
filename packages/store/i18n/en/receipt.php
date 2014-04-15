@@ -9,7 +9,7 @@ $i18n['title'] = 'Your receipt';
 // receipt
 $i18n['receipt-header'] = 'Thanks for your purchase';
 $i18n['receipt-help1'] = 'Here is your receipt and further information about your purchase. A copy of this receipt was sent to your by email. Your confirmation number is';
-$i18n['receipt-help2'] = 'You will need this number if you need to contact us regarding your order. You can also find this number in the receipt we emailed you, as well as in your list of gift fished. We will process your order right away; soon you will receive the tracking number in your email.';
+$i18n['receipt-help2'] = 'You will need this number if you need to contact us regarding your order. You can also find this number in the receipt we emailed you, as well as in your list of fished gifts. We will process your order right away; soon you will receive the tracking number in your email.';
 
 // address
 $i18n['receipt-addressfrom-header'] = 'Your address';
