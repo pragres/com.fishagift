@@ -10,14 +10,14 @@ class Security {
 	 */
 	static function getWebsiteConfigs(){
 		return Array(
-			"price_paper" => 0,
-			"price_card" => 2,
-			"price_bag" => 3,
-			"price_ornament" => 0.5,
-			"tax_amount" => 0.07
+				"price_paper" => 0,
+				"price_card" => 2,
+				"price_bag" => 3,
+				"price_ornament" => 0.5,
+				"tax_amount" => 0.07
 		);
 	}
-
+	
 	/**
 	 * Based on a item's price, calculates the taxes to pay.
 	 * We should use this function instead of manually calculate for in case the formula changes
@@ -50,6 +50,7 @@ class Security {
 	}
 	
 	/**
+	 *
 	 *
 	 *
 	 *
@@ -268,13 +269,19 @@ class Security {
 	 * @return : user session variable
 	 */
 	static function getCurrentUser(){
-		if (! self::isSessionStarted()) return false;
+		if (! self::isSessionStarted())
+			return null;
+		
 		$user = framework::session_get('user');
+		
+		if (! is_array($user))
+			return null;
+		
 		$userx = self::getUser($user['EMAIL']);
 		$user = array_merge($user, $userx);
 		return $user;
 	}
-
+	
 	/**
 	 * : Returns true if the session is started, false otherwhise
 	 *
@@ -405,6 +412,7 @@ class Security {
 	 * @author rafa <rafa@pragres.com>
 	 * @version 1.0
 	 * @static
+	 *
 	 *
 	 *
 	 *
@@ -808,6 +816,7 @@ class Security {
 	 *
 	 *
 	 *
+	 *
 	 * @author rafa <rafa@pragres.com>
 	 * @version 1.0
 	 * @param integer $Id
@@ -821,6 +830,7 @@ class Security {
 	 * Add a shipping method
 	 *
 	 * @static
+	 *
 	 *
 	 *
 	 *
@@ -854,6 +864,7 @@ class Security {
 	 * Add a payment method
 	 *
 	 * @static
+	 *
 	 *
 	 *
 	 *
@@ -951,6 +962,7 @@ class Security {
 	 *
 	 *
 	 *
+	 *
 	 * @author rafa
 	 * @version 1.0
 	 * @param string $code
@@ -995,6 +1007,7 @@ class Security {
 	 * Set the language of user
 	 *
 	 * @static
+	 *
 	 *
 	 *
 	 *

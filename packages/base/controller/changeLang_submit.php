@@ -10,7 +10,7 @@ framework::session_set('language', $language);
 
 $user = Security::getCurrentUser();
 
-if (! is_null($user)) {
+if (! is_null($user) && $user !== false) {
 	Security::updateUserInformation($user['EMAIL'], array(
 			'LANGUAGE' => $language
 	));
