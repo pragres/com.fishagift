@@ -30,8 +30,6 @@ class Email {
 	static function sendNewUserRegistrationSuccessfull($to, $password){
 		
 		$lang = framework::session_get('language');
-
-		$user = framework::query("SELECT Password as PASSWORD FROM account WHERE User = '$to';");
 		
 		include_once framework::resolve("packages/email/i18n/$lang/registration_successfull.php");
 		
