@@ -4,13 +4,13 @@
 
 <table width="100%" cellspacing="0" cellpadding="5" style="width:100%">
 	<tr bgcolor="#F8F8F8">
-		<td valign="middle"><img width="40" height="40" style="width:40px; height:40px;" src="http://static.fishagift.com/images/items/<?php echo $order['PRODUCT']['ITEMIMAGE']; ?>" alt="item"/></td>
-		<td><b><?php echo $order['PRODUCT']['ITEMNAMELONG']; ?></b></td>
+		<td width="45"><img width="40" height="40" style="width:40px; height:40px;" src="http://static.fishagift.com/images/items/<?php echo $order['PRODUCT']['ITEMIMAGE']; ?>" alt="item"/></td>
+		<td valign="middle" ><b><?php echo $order['PRODUCT']['ITEMNAMELONG']; ?></b></td>
 		<td align="right">$<?php echo number_format($order['PRODUCT']['ITEMPRICE'],2); ?></td>
 	</tr>
     <tr>
-    	<td valign="middle"><img width="40" height="40" style="width:40px; height:40px;" src="http://static.fishagift.com/images/papers/<?php echo $order['PRODUCT']['PAPERIMAGE']; ?>" alt="item"/></td>
-		<td><?php echo $order['PRODUCT']['PAPERNAME']; ?></td>
+    	<td width="45"><img width="40" height="40" style="width:40px; height:40px;" src="http://static.fishagift.com/images/papers/<?php echo $order['PRODUCT']['PAPERIMAGE']; ?>" alt="item"/></td>
+		<td valign="middle"><?php echo $order['PRODUCT']['PAPERNAME']; ?></td>
 		<td align="right">$<?php echo number_format($order['PRODUCT']['PAPERPRICE'],2); ?></td>
 	</tr>
  	<tr bgcolor="#F8F8F8">
