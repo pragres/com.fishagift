@@ -30,6 +30,7 @@ if (md5($oldPassword) != $user['PASSWORD'] && $oldPassword != '') {
 			"LINETWO" => $address2,
 			"CITY" => $city,
 			"COUNTRY" => $country,
+			"STATE" => $state,
 			"ZIPCODE" => $zipcode,
 			"CARDNUMBER" => $ccNumber,
 			"NAMEONCARD" => $ccName,

@@ -323,6 +323,7 @@ class Security {
 					'user,Language,LANGUAGE',
 					'user,Administrator,ADMINISTRATOR',
 					'user,SubscribeNews,SUBSCRIBENEWS',
+					'user,BirthDate,BIRTHDATE',
 					'user,Sex,SEX',
 					'credit_card,Name,NAMEONCARD',
 					'credit_card,Number,CARDNUMBER*',
