@@ -11,7 +11,7 @@ include_once framework::resolve("packages/base/i18n/$lang/login.php");
 // redirecting to home if session is started
 $isSessionStarted = Security::isSessionStarted();
 if ($isSessionStarted) {
-	header("Location: " . framework::link_to('store/home'));
+	framework::redirect('store/home');
 	exit();
 }
 
