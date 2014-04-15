@@ -31,7 +31,7 @@ $errorEmailNoExist = false;
 $errorUserExist = false;
 if (isset($_GET["error"])) $errorWrongCredentials = $_GET["error"] == "wrongCredentials"; // &error=wrongCredentials when credentials are wrong
 if (isset($_GET["error"])) $errorEmailNoExist = $_GET["error"] == "emailNoExist"; // &error=emailNoExist when email no exist reseting the password
-if (isset($_GET["error"])) $errorUserExist = $_GET["error"] == "userExists"; // &error=userExits when email exists registering
+if (isset($_GET["error"])) $errorUserExist = $_GET["error"] == "userExist"; // &error=userExits when email exists registering
 
 // calling the view
 include_once framework::resolve('packages/base/view/login.tpl');
