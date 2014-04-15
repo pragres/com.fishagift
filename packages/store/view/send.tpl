@@ -23,7 +23,8 @@
 		var newTotalPrice = basePrice + newShippingPrice * 1;
 
 		// add new price to shipping and handeling
-		$('#shipping').html(newShippingPrice.toFixed(2));
+		$('#shipping-amount').html(newShippingPrice.toFixed(2));
+		$('#shipping-amount-input').val(newShippingPrice.toFixed(2));
 
 		// add new price to the button place order
 		$('.payment-total').html(newTotalPrice.toFixed(2));
@@ -32,11 +33,8 @@
 	/**
 	 * Changes the payment method when the user clicks the payment tabs
 	 */
+	 var paymentCredit = false;
 	function changePaymentMethodTab(id,type,obj){
-		// displaying the cliked tab
-		$('.paymentmethod').slideUp();
-		$('#'+id).slideDown();
-
 		// setting the value of the hidden input
 		$('input#paymentmethod').val(type);
 
@@ -48,16 +46,20 @@
 		switch(type){
 			case "CC" :{
 				$('#formAction').val('payByCreditCard');
-				$('input.required').attr('required','required');
+				if(paymentCredit) $('#paymentmethod-credit').html(paymentCredit.html());
 				break;
 			}
 			case "PP" :{
 				$('#formAction').val('payByPayPal');
-				$('input.required').removeAttr('required');
-				$('input.required').val(''); // @TODO workaround for Chrome. Cannot submit hidden, required fields
+				paymentCredit = $('#paymentmethod-credit').clone(); 
+				$('#paymentmethod-credit').empty(); // @TODO workaround for Chrome. Cannot submit hidden, required fields
 				break;
 			}
 		}
+
+		// displaying the cliked tab
+		$('.paymentmethod').slideUp();
+		$('#'+id).slideDown();
 	}
 
 	// this identifies your website in the createToken call below
@@ -118,6 +120,14 @@
 			});
 		});
 	});
+
+	function submitPayPal() {
+		if($('#section-send').ht5ifv('valid')) { 
+			$('#paypal-form').submit();
+			return false;
+		}
+		return true;
+	}
 </script>
 
 <div id="section-body" class="container">
@@ -280,7 +290,7 @@
 						</tr>
 						<tr>
 							<td colspan="2"><?php echo $i18n['payment-shipping']; ?></td>
-							<td class="text-right">$<span id="shipping"><?php echo number_format($shipping,2); ?></span></td>
+							<td class="text-right">$<span id="shipping-amount"><?php echo number_format($shipping,2); ?></span></td>
 						</tr>
 						<tr>
 							<td colspan="2"><b><?php echo $i18n['payment-total']; ?></b></td>
@@ -334,7 +344,7 @@
 							</select>
 						</div>
 						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-							<select id="ccExpirationYear" name="ccExpirationYear" type="text" class="form-control required" title="<?php echo $i18n['creditcard-expdate-year-title']; ?>" required>
+							<select id="ccExpirationYear" name="ccExpirationYear" class="form-control required" title="<?php echo $i18n['creditcard-expdate-year-title']; ?>" required>
 								<option value=""><?php echo $i18n['cc-yyyy']; ?></option>
 								<?php 
 									for($i=date("Y"); $i<date("Y")+10; $i++) {
@@ -377,21 +387,7 @@
 				<!--sub-subsection: paypal-->
 				<div id="paymentmethod-paypal" class="paymentmethod text-center" style="display:none;">
 					<p style="margin:0px 20px 20px 20px;"><?php echo $i18n['paypal-help']; ?></p>
-	
-					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-						<!-- Identify your business so that you can collect the payments. -->
-						<input type="hidden" name="business" value="sales@fishagift.com">
-						<!-- Specify a Buy Now button. -->
-						<input type="hidden" name="cmd" value="_xclick">
-						<!-- Specify details about the item that buyers will purchase. -->
-						<input type="hidden" name="item_name" value="Hot Sauce-12oz Bottle">
-						<input type="hidden" name="amount" value="5.95">
-						<input type="hidden" name="tax" value="0.12">
-						<input type="hidden" name="shipping" value="11.50">
-						<input type="hidden" name="currency_code" value="USD">
-						<!-- Display the payment button. -->
-						<input type="image" name="submit" width="250" src="<?php echo framework::resolve('static/graphs/paypal.png'); ?>" alt="PayPal - The safer, easier way to pay online"/>
-					</form>
+					<input type="image" name="submit" onclick="return submitPayPal();" width="250" src="<?php echo framework::resolve('static/graphs/paypal.png'); ?>" alt="PayPal - The safer, easier way to pay online"/>
 				</div>
 			</div>
 			<div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
@@ -411,5 +407,18 @@
 		</div>
 	</form>
 </div>
+
+<form id="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+	<!-- Identify your business so that you can collect the payments. -->
+	<input type="hidden" name="business" value="sales@fishagift.com">
+	<!-- Specify a Buy Now button. -->
+	<input type="hidden" name="cmd" value="_xclick">
+	<!-- Specify details about the item that buyers will purchase. -->
+	<input type="hidden" name="item_name" value="<?php echo $shopping_cart_item['NAMELONG']; ?>">
+	<input type="hidden" name="amount" value="<?php echo number_format($shopping_cart_price,2); ?>">
+	<input type="hidden" name="tax" value="<?php echo number_format($tax,2); ?>">
+	<input type="hidden" name="shipping" id="shipping-amount-input" value="<?php echo number_format($shipping,2); ?>">
+	<input type="hidden" name="currency_code" value="USD">
+</form>
 
 <?php include_once framework::resolve('packages/base/view/footer.tpl'); ?>
