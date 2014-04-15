@@ -21,7 +21,8 @@
 	// error messages
 	$i18n['wrong-pass'] = '<strong>Error!</strong> Su correo electr&oacute;nico o contrase&ntilde;a son incorrentos. Intente nuevamente.';
 	$i18n['nonexisting-email'] = '<strong>Error!</strong> No encontramos el correo electr&oacute;nico insertado. Intente nuevamente.';
-
+	$i18n['email-exists'] = '<strong>Error!</strong> El correo electr&oacute;nico ya fue registrado. Intente con otro.';
+		
 	/*
 		Coming from menu.php
 		---------------------

@@ -21,7 +21,8 @@
 	// error messages
 	$i18n['wrong-pass'] = '<strong>Error!</strong> Your email and password combination is incorrect. Please try again.';
 	$i18n['nonexisting-email'] = '<strong>Error!</strong> The email you inserted is not in our database. Please check for typos and try again.';
-
+	$i18n['email-exists'] = '<strong>Error!</strong> The email you inserted already exists in our database. Please check for typos and try again.';
+	
 	/*
 		Coming from menu.php
 		---------------------

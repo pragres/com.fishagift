@@ -23,6 +23,13 @@
 				});
 			</script>
 		<?php } ?>
+		
+		<?php if($errorUserExist) { ?>
+			<div class="alert alert-danger">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				<?php echo $i18n['email-existing']; ?>
+			</div>
+		<?php } ?>
 	</div>
 
 	<div class="row">
