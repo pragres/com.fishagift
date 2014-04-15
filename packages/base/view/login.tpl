@@ -27,7 +27,7 @@
 		<?php if($errorUserExist) { ?>
 			<div class="alert alert-danger">
 				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				<?php echo $i18n['email-existing']; ?>
+				<?php echo $i18n['email-exists']; ?>
 			</div>
 		<?php } ?>
 	</div>
