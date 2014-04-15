@@ -29,7 +29,7 @@ class Trace {
 		$pkg = framework::getValue('package');
 		$pag = framework::getValue('page');
 		
-		if (empty($pkg) || empty($pag) || is_null($pkg) || is_null($pkg) || "$pkg" == "" || "$pkg" == "")
+		if (empty($pkg) || empty($pag) || is_null($pkg) || is_null($pag) || "$pkg" == "" || "$pag" == "")
 			$this->location = null;
 		else
 			$this->location = $pkg . '/' . $pag;
