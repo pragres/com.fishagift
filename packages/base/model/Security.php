@@ -359,7 +359,7 @@ class Security {
 				if (isset($user[$arr[2]])) {
 					
 					if ($arr[1] == 'Password')
-						$arr[2] = md5($arr[2]);
+						$user[$arr[2]] = md5($user[$arr[2]]);
 										
 					$sql = "UPDATE {$arr[0]} SET {$arr[1]} = '{$user[$arr[2]]}' Where " . ($arr[0] == 'user' ? 'Email' : 'User') . " = '$email';";
 					
