@@ -224,6 +224,7 @@ class Security {
 	 * @param : email, String
 	 */
 	static function registerUser($email){
+		
 		$r = framework::query("SELECT count(Email) as C from user where Email = '$email';");
 		
 		if (isset($r[0]))
@@ -232,6 +233,7 @@ class Security {
 					return false;
 		
 		$password = uniqid();
+		
 		framework::query("INSERT INTO `user` (Email) values ('$email');");
 		framework::query("INSERT INTO `account` (User, Password) values ('$email','" . md5($password) . "');");
 		

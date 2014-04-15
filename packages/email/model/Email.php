@@ -27,13 +27,14 @@ class Email {
 	 * @author salvi
 	 * @param string $to
 	 */
-	static function sendNewUserRegistrationSuccessfull($to){
+	static function sendNewUserRegistrationSuccessfull($to, $password){
+		
 		$lang = framework::session_get('language');
 
 		$user = framework::query("SELECT Password as PASSWORD FROM account WHERE User = '$to';");
-		$password = $user[0]['PASSWORD'];
-
+		
 		include_once framework::resolve("packages/email/i18n/$lang/registration_successfull.php");
+		
 		$subject = $i18n['subject'];
 
 		ob_start();
@@ -42,6 +43,7 @@ class Email {
 		ob_clean();
 
 		self::sendEmailDefaultTemplate($to, $subject, $message);
+		
 		framework::log("New user was registered with username $email");
 	}
 
