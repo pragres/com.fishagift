@@ -46,7 +46,8 @@ if (is_null($user)) {
 		
 		framework::log("Login successfull for $email");
 		
-		header("Location: " . framework::link_to($returnTo));
+		framework::redirect($returnTo);
+		
 	} else {
 		// wrong password
 		framework::log("Login error: $email type a wrong password!");
