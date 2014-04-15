@@ -70,7 +70,7 @@ class framework {
 		
 		// returning depending if clean=true or false
 		if ($clean)
-			return "{$node['website']['protocol']}://{$node['website']['appdomain']}/$route";
+			return "{$node['website']['protocol']}://{$node['website']['appdomain']}/$package/$page";
 		else
 			return "{$node['website']['protocol']}://{$node['website']['appdomain']}/router.php?package=$package&page=$page";
 	}
