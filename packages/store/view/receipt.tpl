@@ -14,9 +14,9 @@
 	<div class="col-lg-5 col-md-5 col-sm-5 col-xm-12">
 		<h1><?php echo $i18n['receipt-addressto-header']; ?></h1>
 		<address>
-			<b><p><?php echo $order['RECEIVER']; ?></p></b>
+			<p><b><?php echo $order['RECEIVER']; ?></b></p>
 			<?php echo $order['RECEIVERADDRESS1']; ?><br/>
-			<?php echo $order['RECEIVERADDRESS2']; ?><br/>
+			<?php echo $order['RECEIVERADDRESS2'] ? $order['RECEIVERADDRESS2']."<br/>" : ""; ?>
 			<?php echo $order['RECEIVERCITY']; ?> <?php echo $order['RECEIVERZIPCODE']; ?>
 		</address>
 

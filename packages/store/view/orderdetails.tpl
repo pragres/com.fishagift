@@ -15,7 +15,7 @@
 		<address>
 			<p><b><?php echo $order['RECEIVER']; ?></b></p>
 			<?php echo $order['RECEIVERADDRESS1']; ?><br/>
-			<?php echo $order['RECEIVERADDRESS2']; ?><br/>
+			<?php echo $order['RECEIVERADDRESS2'] ? $order['RECEIVERADDRESS2']."<br/>" : ""; ?>
 			<?php echo $order['RECEIVERCITY']; ?> <?php echo $order['RECEIVERZIPCODE']; ?>
 		</address>
 
@@ -23,7 +23,7 @@
 		<p style="padding-right:50px;">
 			<?php echo $i18n['receipt-details-payby']; ?> <?php echo $order['PAYMENTMETHOD']['NAME']; ?>, <?php echo $order['SENDER']['CARDTYPE']; ?> <?php echo $ccNumber; ?>.
 			<?php echo $i18n['receipt-details-sendby']; ?> USPS priority mail, two days shipping. <?php echo $order['RECEIVER']; ?>
-			<?php echo $i18n['receipt-details-receiveby']; ?> <?php echo $order['DATE']; ?>
+			<?php echo $i18n['receipt-details-receiveby']; ?> <?php echo $arrivalDate; ?>
 		</p>
 	</div>
 

@@ -6,7 +6,7 @@
 	$i18n['motto'] = 'Do you want to send a personalized gift without leaving your chair? This is not an ordinary store, we <b>wrap and send a gift in your behalf</b> so finely done that <b>they will think it was you</b>';
 	
 	// home
-	$i18n['home-header'] = 'how can I send a gift?';
+	$i18n['home-header'] = 'How can I send a gift?';
 	$i18n['home-pick'] = 'Pick an item';
 	$i18n['home-pick-msg'] = 'Select the item you like the most from a prepopulated list of many diverse options. With our fine selection of special presents you cannot fail.';
 	$i18n['home-wrap'] = 'Wrap it';

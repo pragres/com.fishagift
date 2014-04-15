@@ -43,10 +43,16 @@ framework::$config = parse_ini_file("framework/config.ini", true, INI_SCANNER_NO
  */
 session_start();
 
+/**
+ * Set language by default
+ * */
 $lang = framework::session_get("language");
+if (! $lang || is_null($lang)) framework::session_set("language", "en");
 
-if (! $lang || is_null($lang))
-	framework::session_set("language", "en");
+/**
+ * Configure the php to display data depending the language 
+ * */
+setlocale(LC_ALL, $lang);
 
 /**
  * update the Tracer structure

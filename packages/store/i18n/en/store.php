@@ -3,7 +3,7 @@
 	$i18n['title'] = 'Store';
 
 	// items
-	$i18n['item-header'] = 'pick an item';
+	$i18n['item-header'] = 'Pick an item';
 	$i18n['item-msg'] = '<strong>Your item was selected!</strong> Now go and choose the wrapping paper that pleases your heart. If you want another item instead, remove from the shopping cart the one you just picked and the list will appear again.';
 	$i18n['item-add-cart'] = 'Add';
 	$i18n['item-see-more'] = 'More';
@@ -20,7 +20,7 @@
 	$i18n['btn-add-card'] = 'Add to shopping cart';
 
 	// wrapping paper
-	$i18n['wrap-header'] = 'wrap your gift';
+	$i18n['wrap-header'] = 'Wrap your gift';
 	$i18n['wrap-msg'] = '<strong>The wrapping paper was selected!</strong> If you already selected an item, you can now jump to the next step, where you will send the present. If you want another wrapping paper instead, remove from the shopping cart the one you just picked and the list will appear again.';
 
 	// bags
