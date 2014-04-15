@@ -13,7 +13,7 @@ foreach ( $_POST as $key => $value )
 $user = Security::getCurrentUser();
 
 if (! isset($newPassword))
-	$newPassword = $user['PASSWORD'];
+	$newPassword = '';
 
 $wrongOldPassword = false;
 
@@ -21,9 +21,6 @@ if (md5($oldPassword) != $user['PASSWORD'] && $oldPassword != '') {
 	$wrongOldPassword = true;
 	include_once framework::resolve('packages/store/view/profile.tpl');
 } else {
-	
-	if ($oldPassword == '')
-		$newPassword = $user['PASSWORD'];
 	
 	$profile = array(
 			"FULLNAME" => $fullName,
@@ -42,7 +39,8 @@ if (md5($oldPassword) != $user['PASSWORD'] && $oldPassword != '') {
 			"SUBSCRIBENEWS" => $subscribe == 'on' ? 1 : 0
 	);
 	
-	//if (isseet($_POST['Password'])
+	if ($oldPassword !== '' && $newPassword !== '')
+		$profile['PASSWORD'] = $newPassword;
 	
 	Security::saveProfile($profile);
 }
