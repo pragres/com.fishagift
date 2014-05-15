@@ -11,7 +11,7 @@ if (! is_null($u) && $u !== false) {
 	$newPassword = uniqid();
 	
 	Security::updateUserInformation($email, array(
-			'Password' => $newPassword
+			'PASSWORD' => $newPassword
 	));
 	
 	Email::sendNewPassword($email, $newPassword);
