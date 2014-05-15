@@ -15,6 +15,7 @@ if (! is_null($u) && $u !== false) {
 	));
 	
 	Email::sendNewPassword($email, $newPassword);
+	framework::redirect("store/login");
 } else {
 	framework::redirect("store/login", "&error=emailNoExist");
 }
