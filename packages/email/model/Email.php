@@ -65,7 +65,7 @@ class Email {
 		
 		self::sendEmailDefaultTemplate($to, $subject, $message);
 		
-		framework::log("New user was registered with username $email");
+		framework::log("New password for $to");
 	}
 	
 	/**
