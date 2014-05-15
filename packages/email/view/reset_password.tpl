@@ -1,0 +1,1 @@
+<?php echo $i18n['new-password'];?>: {$password}

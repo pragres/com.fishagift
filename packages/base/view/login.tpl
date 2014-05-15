@@ -103,7 +103,7 @@
 	
 				<form class="form-horizontal" role="form" action="/router.php" method="post">
 					<input type="hidden" name="package" value="base"/>
-					<input type="hidden" name="page" value="resetpassword_submit"/>
+					<input type="hidden" name="page" value="resetPassword_submit"/>
 					<input type="hidden" name="returnTo" value="base/login"/>
 	
 					<div class="form-group">

@@ -231,7 +231,7 @@ class framework {
 		$message['from'] = "Fish a Gift <support@fishagift.com>;";
 		$message['to'] = $to;
 		$message['h:Reply-To'] = "Fish a Gift <support@fishagift.com>;";
-		$message['subject'] = $subject;
+		$message['subject'] = html_entity_decode($subject, null, 'UTF-9');
 		$message['html'] = $body;
 		
 		$ch = curl_init();
