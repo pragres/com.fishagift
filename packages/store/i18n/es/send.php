@@ -22,7 +22,7 @@ $i18n['shipping-help'] = 'Seleccione la velocidad del env&iacute;o. Su selecci&o
 
 // shipping codes
 $i18n['1D'] = 'Recibir el pr&oacute;ximo d&iacute;a';
-$i18n['2D'] = 'De Dos a Tres d&iacute;as';
+$i18n['2D'] = 'De dos a tres d&iacute;as';
 
 // breakdown
 $i18n['payment-header'] = 'Desglose de pagos';

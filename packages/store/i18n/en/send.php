@@ -22,7 +22,7 @@ $i18n['shipping-help'] = 'Select from a shipping speed. Your selection will auto
 
 // shipping codes
 $i18n['1D'] = 'Next day shipping';
-$i18n['2D'] = 'Two to Three days';
+$i18n['2D'] = 'Two to three days';
 
 // breakdown
 $i18n['payment-header'] = 'Payments breakdown';

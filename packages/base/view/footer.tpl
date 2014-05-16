@@ -13,14 +13,19 @@
 						<div class="col-lg-3 col-md-3 col-sm-3">
 							<strong><?php echo $i18n['help']; ?></strong>
 							<ul>
-								<!--<li><a href="<?php echo framework::link_to('store/about'); ?>#faq"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>-->
+								<?php /* @TODO Add support, terms and FAQ and uncomment these links.
+								<li><a href="<?php echo framework::link_to('store/about'); ?>#faq"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
 								<li><a href="#"><?php echo $i18n['support']; ?></a></li>
+								<li><a href="#"><?php echo $i18n['terms']; ?></a></li>
+								*/ ?>
 								<li><a href="<?php echo framework::link_to('store/about'); ?>"><?php echo $i18n['about']; ?></a></li>
 							</ul>
-		
+
 							<strong><?php echo $i18n['navigation']; ?></strong>
 							<ul>
+								<?php /* @TODO Add a side map and uncomment this link 
 								<li><a href="#"><?php echo $i18n['sitemap']; ?></a></li>
+								*/?>
 								<li><a href="<?php echo framework::link_to('admin/dashboard'); ?>"><?php echo $i18n['admin']; ?></a></li>
 							</ul>
 						</div>
@@ -28,7 +33,6 @@
 						<div class="col-lg-4 col-md-4 col-sm-4">
 							<strong><?php echo $i18n['legal']; ?></strong>
 							<p class="text-left"><?php echo $i18n['legalnotes']; ?></p>
-							<!--<a href="#" class="btn btn-default"><?php echo $i18n['readmore']; ?></a>-->
 						</div>
 
 						<div class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
@@ -77,10 +81,9 @@
 				<div id="footer-finishg" class="col-lg-4 col-md-4 hidden-sm hidden-xs text-center">
 					<div id="like-us" class="text-left">
 						<div style="margin-bottom: 5px;"><?php echo $i18n['facebook']; ?></div>
-						<div class="fb-like" data-href="https://fishagift.com" data-width="450" data-layout="button_count" data-show-faces="false" data-send="false"></div>				
+						<div class="fb-like" data-href="https://www.facebook.com/fishagift" data-width="450" data-layout="button_count" data-show-faces="false" data-send="false"></div>				
 					</div>
 				</div>
-
 			</div>
 		</div>
 
