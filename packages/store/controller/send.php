@@ -21,7 +21,7 @@ $user = Security::getCurrentUser();
 
 // redirect to the login page if session is not started
 if (!$isSessionStarted) {
-    header("Location: " . framework::link_to('base/login'));
+    header("Location: " . framework::link_to('base/login').'&returnTo=store/send');
     exit;
 }
 
