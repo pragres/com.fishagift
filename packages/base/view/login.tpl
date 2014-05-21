@@ -7,7 +7,7 @@
 		<h1><?php echo $i18n['session-header']; ?></h1>
 		<?php if($errorWrongCredentials) { ?>
 			<div class="alert alert-danger">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 				<?php echo $i18n['wrong-pass']; ?>
 			</div>
 		<?php } ?>

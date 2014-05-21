@@ -42,7 +42,7 @@
 					<div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-9 col-sm-offset-4">
 						<div class="checkbox">
 							<label>
-								<input name="subscribe" type="checkbox" <?php if($subscribe != 0 && $subscribe !== false) { ?> checked="checked" <?php } ?>/>
+								<input name="subscribe" type="checkbox" <?php if(intval($subscribe) !== 0 && $subscribe !== false) { ?> checked="checked" <?php } ?>/>
 								<?php echo $i18n['subscribe']; ?>
 							</label>
 						</div>

@@ -22,7 +22,7 @@ $isSessionStarted = Security::isSessionStarted();
 $user = Security::getCurrentUser();
 
 // passing variables to the view
-$pictures = array_filter(Array($getItemByID["IMAGE1"], $getItemByID["IMAGE2"], $getItemByID["IMAGE3"], $getItemByID["IMAGE4"], $getItemByID["IMAGE5"]));
+$pictures = array_filter(array($getItemByID["IMAGE1"], $getItemByID["IMAGE2"], $getItemByID["IMAGE3"], $getItemByID["IMAGE4"], $getItemByID["IMAGE5"]));
 $title = $getItemByID['NAMELONG'];
 
 // calling the view

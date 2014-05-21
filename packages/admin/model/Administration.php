@@ -245,6 +245,8 @@ class Administration {
 		
 		$order['PRODUCT']['ORNAMENTS'] = framework::query("SELECT Ornament as ORNAMENT FROM product_bought_ornaments WHERE Product = $transaction;");
 		
+		$order['PAYMENTMETHOD'] = Security::getPaymentMethod($order['PAYMENTMETHOD']);
+				
 		return $order;
 	}
 	
